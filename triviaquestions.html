@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Bungee+Outline" rel="stylesheet">
+	<!-- STYLE SHEET  -->
+	<link rel="stylesheet" type="text/css" href="triviastyle.css">
+
+</head>
+
+<body>
+
+<div id="container">
+	<h1>Totally Trival Trivia!</h1>
+
+	<!-- TIMER -->
+	<div id="Timer"></div>
+
+	Time Remaining:
+	<span id="countdown" style="font-weight: bold;">15</span>
+
+	<!-- QUESTIONS -->
+	<p class="question">1. What is 2*5?</p>
+	<ul class="answers">
+		<input type="radio" name="q1" value="a" id="q1a"><label for="q1a">4</label><br/>
+		<input type="radio" name="q1" value="b" id="q1b"><label for="q1b">10</label><br/>
+		<input type="radio" name="q1" value="c" id="q1c"><label for="q1c">13</label><br/>
+		<input type="radio" name="q1" value="d" id="q1d"><label for="q1d">11</label><br/>
+	</ul>
+
+	<p class="question">2. What was the name of the first U.S. space station?</p>
+	<ul class="answers">
+		<input type="radio" name="q2" value="a" id="q2a"><label for="q2a">Skylab</label><br/>
+		<input type="radio" name="q2" value="b" id="q2b"><label for="q2b">NASA</label><br/>
+		<input type="radio" name="q2" value="c" id="q2c"><label for="q2c">First Flight</label><br/>
+		<input type="radio" name="q2" value="d" id="q2d"><label for="q2d">New Moon</label><br/>
+	</ul>
+
+	<p class="question">3. What city hosted the 2012 Summer Olympics?</p>
+
+	<ul class="answers">
+		<input type="radio" name="q3" value="a" id="q3a"><label for="q3a">London</label><br/>
+		<input type="radio" name="q3" value="b" id="q3b"><label for="q3b">Atlanta</label><br/>
+		<input type="radio" name="q3" value="c" id="q3c"><label for="q3c">Spain</label><br/>
+		<input type="radio" name="q3" value="d" id="q3d"><label for="q3d">New York</label><br/>
+	</ul>
+
+	<p class="question">4. In what year was the iPhone first released?</p>
+	<ul class="answers">
+		<input type="radio" name="q4" value="a" id="q4a"><label for="q4a">2007</label><br/>
+		<input type="radio" name="q4" value="b" id="q4b"><label for="q4b">2009</label><br/>
+		<input type="radio" name="q4" value="c" id="q4c"><label for="q4c">2008</label><br/>
+		<input type="radio" name="q4" value="d" id="q4d"><label for="q4d">2004</label><br/>
+	</ul>
+
+	<p class="question">5. How many US Supreme Court justices are there?</p>
+	<ul class="answers">
+		<input type="radio" name="q5" value="a" id="q5a"><label for="q5a">6</label><br/>
+		<input type="radio" name="q5" value="b" id="q5b"><label for="q5b">9</label><br/>
+		<input type="radio" name="q5" value="c" id="q5c"><label for="q5c">10</label><br/>
+		<input type="radio" name="q5" value="d" id="q5d"><label for="q5d">8</label><br/>
+	</ul>
+
+<script>
+
+// TIME REMAINING PORTION	
+
+var timeInSecs;
+var ticker;
+
+function startTimer(secs){
+timeInSecs = parseInt(secs)-1;
+ticker = setInterval("tick()",1000);   // every second
+}
+
+function tick() {
+var secs = tismeInSecs;
+if (secs>0) {
+timeInSecs--;
+}
+else {
+clearInterval(ticker);
+}
+
+document.getElementById("countdown").innerHTML = secs;
+}
+
+startTimer (15); } 
+ // 15 seconds 
+ 
+
+/////////////////
+$(document).ready(function() 
+{    $("#results").click(function() {                
+
+if (!$("input[@name=q1]:checked").val() ||            
+!$("input[@name=q2]:checked").val() ||            
+!$("input[@name=q3]:checked").val() ||            
+!$("input[@name=q4]:checked").val() ||            
+!$("input[@name=q5]:checked").val() ||            
+          
+) {            
+alert("You're not done yet!");        
+}        
+
+else {            
+var cat1name = "1";            
+var cat2name = "2";            
+var cat3name = "3";            
+var cat4name = "4";            
+var cat5name = "5";            
+           
+            
+
+var cat1 = ($("input[@name=q1]:checked").val() != "b"); 
+           
+var cat2 = ($("input[@name=q2]:checked").val() != "a");  
+
+var cat3 = ($("input[@name=q3]:checked").val() != "a");  
+
+var cat4 = ($("input[@name=q4]:checked").val() != "a");  
+
+var cat5 = ($("input[@name=q5]:checked").val() != "b"); 
+
+
+var cat11 = (!cat1 && !cat2 && !cat3 && !cat4 && !cat5 && !cat6; var categories = [];                        
+
+if (cat1) { categories.push(cat1name) };            
+if (cat2) { categories.push(cat2name) };            
+if (cat3) { categories.push(cat3name) };            
+if (cat4) { categories.push(cat4name) };            
+if (cat5) { categories.push(cat5name) };            
+                        
+
+var catStr = 'You answered the following questions incorrectly: ' + categories.join(', ') + '';                     
+$("#categorylist").text(catStr);                        
+$("#categorylist").show("slow");            
+
+if (cat1) { $("#category1").show("slow"); };            
+if (cat2) { $("#category2").show("slow"); };            
+if (cat3) { $("#category3").show("slow"); };            
+if (cat4) { $("#category4").show("slow"); };            
+if (cat5) { $("#category5").show("slow"); };            
+
+{ $("#closing").show("slow"); };
+
+</script>
+
+<!-- Script  -->
+   <!--  <script type="text/javascript" src="trivia.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="assets/javascript/trivia.js"></script>
+
+</body>
+</html>
